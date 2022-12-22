@@ -29,8 +29,9 @@ contract LoanRequest {
 
     event LoanRequestAccepted(address loan);
 
+    /// @dev this function has to be called by the lender who want to send ethereum to the borrower
     function lendEther() public payable {
-        require(msg.value == loanAmount);
+        require(msg.value == loanAmount, "Value is not same as loan amount."); /// @notice check amount sent on the txn is the same required by the borrower
         loan = new Loan(
             payable(msg.sender),
             borrower,
@@ -39,8 +40,11 @@ contract LoanRequest {
             payoffAmount,
             loanDuration
         );
-        require(token.transferFrom(borrower, address(loan), collateralAmount));
-        borrower.transfer(loanAmount);
+        require(
+            token.transferFrom(borrower, address(loan), collateralAmount),
+            "Collateral transferring by the borrower failed."
+        ); /// @notice borrower send the collateral to the smart contract
+        borrower.transfer(loanAmount); /// @notice send eth to the borrower
         emit LoanRequestAccepted(address(loan));
     }
 }
