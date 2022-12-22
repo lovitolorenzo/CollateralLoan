@@ -1,14 +1,14 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 import {ERC20} from "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "./loan.sol";
+import {Loan} from "./Loan.sol";
 
 contract LoanRequest {
     address payable public borrower = payable(msg.sender);
     ERC20 public token;
-    uint256 public collateralAmount;
+    uint256 public collateralAmount; /// @dev Amount of given token as collateral by the borrower
     uint256 public loanAmount;
-    uint256 public payoffAmount;
+    uint256 public payoffAmount; /// @dev To re-pay amount
     uint256 public loanDuration;
 
     constructor(
