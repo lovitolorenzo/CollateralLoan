@@ -2,7 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 require("dotenv").config();
 
-const { API_URL, RESERVE_PRIVATE_KEY } = process.env;
+const { ALCHEMY_API_URL, RESERVE_PRIVATE_KEY } = process.env;
 
 module.exports = {
   solidity: "0.8.17",
@@ -11,7 +11,7 @@ module.exports = {
     hardhat: {},
     goerli: {
       accounts: [RESERVE_PRIVATE_KEY ? RESERVE_PRIVATE_KEY : ""], //deployer
-      url: API_URL,
+      url: ALCHEMY_API_URL,
       //blockGasLimit: 100000000000000,
     },
   },

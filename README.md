@@ -11,12 +11,15 @@ $ yarn add
 
 To go further with a backend integration could be useful to
 create a .env file and insert the following keys:
-MNEMONIC="****\*\*****\*****\*\*****"
+MNEMONIC="\***\*\*\*\*\***\*\***\*\*\*\*\***"
 PRIVATE_KEY="**\*\***\*\*\*\***\*\***"
 INFURA_API_KEY="**\*\***\***\*\***"
 INFURA_API_SECRET="**\*\***\*\***\*\***"
 ALCHEMY_API_KEY="**\*\*\*\***\*\***\*\*\*\***"
-ETHERSCAN_API_KEY="****\*\*****\*****\*\*****"
+ALCHEMY_API_URL="**\*\*\*\***\*\***\*\*\*\***"
+ETHERSCAN_API_KEY="\***\*\*\*\*\***\*\***\*\*\*\*\***"
+
+Also adapt PRIVATE_KEY used in hardhat.config.ts
 
 run the following to deploy the contracts and be able to have artifacts, their abis and bytescode:
 
